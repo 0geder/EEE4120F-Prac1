@@ -7,8 +7,8 @@
 % MEMBERS:
 %   - Member 1 Nyakallo Peete, PTXNYA001
 %   - Member 2 Samson Okuthe, OKTSAM001
-
-%% ========================================================================
+%
+% ========================================================================
 %  PART 3: Testing and Analysis (MAIN FUNCTION)
 %  ========================================================================
 function run_analysis()
@@ -136,7 +136,8 @@ function run_analysis()
     sgtitle('Benchmarking: Manual vs Built-in Convolution');
 end
 
-%% ========================================================================
+%
+% ========================================================================
 %  PART 1: Manual 2D Convolution Implementation (HELPER FUNCTION)
 %  ========================================================================
 function output = my_conv2(img, kernel) 
@@ -177,7 +178,8 @@ function output = my_conv2(img, kernel)
     end
 end
 
-%% ========================================================================
+%
+% ========================================================================
 %  PART 2: Built-in 2D Convolution Implementation (HELPER FUNCTION)
 %  ========================================================================
 function output = inbuilt_conv2(img, kernel) 
