@@ -2,11 +2,11 @@
 % Practical 2: Mandelbrot-Set Serial vs Parallel Analysis
 % =========================================================================
 %
-% GROUP NUMBER:
+% GROUP NUMBER:24
 %
 % MEMBERS:
-%   - Member 1 Name, Student Number
-%   - Member 2 Name, Student Number
+%   - Member 1 Nyakallo Peete, PTXNYA001
+%   - Member 2 Samson  Okuthe, OKTSAM001
 
 %% ========================================================================
 %  PART 1: Mandelbrot Set Image Plotting and Saving
@@ -15,6 +15,27 @@
 % TODO: Implement Mandelbrot set plotting and saving function
 function mandelbrot_plot(varargin) %Add necessary input arguments
     
+    if nargin < 5 || isempty(out_dir)
+        out_dir = "outputs";
+    end
+
+    if ~isfolder(out_dir)
+        mkdir(out_dir);
+    end
+
+    fig = figure('Visible','off');
+    imagesc(M);
+    axis image off;
+    colormap(turbo);
+    colorbar;
+    title(sprintf('Mandelbrot Set (%s) - %dx%d', method_name, width, height), ...
+        'Interpreter','none');
+
+    filename = fullfile(out_dir, sprintf('mandelbrot_%s_%dx%d.png', ...
+        method_name, width, height));
+    exportgraphics(fig, filename, 'Resolution', 200);
+
+    close(fig);
 end
 
 %% ========================================================================
