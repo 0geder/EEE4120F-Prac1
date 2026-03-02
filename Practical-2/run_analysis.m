@@ -44,7 +44,25 @@ end
 %
 %TODO: Implement serial Mandelbrot set computation function
 function mandelbrot_serial(varargin) %Add necessary input arguments 
-    
+        if nargin < 4 || isempty(xlim)
+        xlim = [-2.0, 1.0];
+    end
+    if nargin < 5 || isempty(ylim)
+        ylim = [-1.2, 1.2];
+    end
+
+    x = linspace(xlim(1), xlim(2), width);
+    y = linspace(ylim(1), ylim(2), height);
+
+    M = zeros(height, width, 'uint16'); % stores iteration counts (memory efficient)
+
+    for r = 1:height
+        cy = y(r);
+        for c = 1:width
+            cx = x(c);
+            M(r,c) = mandelbrot_point(cx, cy, max_iterations);
+        end
+    end
 end
 
 %% ========================================================================
